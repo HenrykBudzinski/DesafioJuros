@@ -21,13 +21,13 @@ Responde pelo path relativo `/calculajuros`
   
 Ela faz um cálculo em memória, de juros compostos, conforme abaixo:  
 
->> Valor Final = Valor Inicial * (1 + juros) ^ Tempo  
+> Valor Final = Valor Inicial * (1 + juros) ^ Tempo  
   
 - **Valor inicial** é um decimal recebido como parâmetro;
 - **Valor do Juros** deve ser consultado na **API 1**;
 - **Tempo** é um inteiro que representa os meses. Também recebido como parâmetro.   
   
->> `^` _representa a operação de potência._  
+> `^` _representa a operação de potência._  
   
 Resultado final deve ser truncado (sem arredondamento) em duas casas decimais.  
   
