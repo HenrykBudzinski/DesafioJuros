@@ -33,7 +33,7 @@ namespace FinanceiroCore.Comum
             var juros = await BancoCentral.GetTaxaJurosAsync();
             var jurosTotal = Math.Pow(1 + (double)juros, meses);
             var valorTotal = valorInicial * (decimal) jurosTotal;
-            return valorTotal;
+            return Math.Truncate(100m * valorTotal) / 100m;;
         }
     }
 }
