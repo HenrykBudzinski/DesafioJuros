@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
@@ -30,7 +31,8 @@ namespace FinanceiroCore.RecursosExternos
             using var response = await http.GetAsync("/taxaJuros");
             response.EnsureSuccessStatusCode();
             var text = await response.Content.ReadAsStringAsync();
-            if (string.IsNullOrEmpty(text) || !decimal.TryParse(text, out var taxes))
+            if (string.IsNullOrEmpty(text) || 
+                !decimal.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out var taxes))
             {
                 throw new HttpRequestException(
                     "A Api1 está informando valores inválidos", 
