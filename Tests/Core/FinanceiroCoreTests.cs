@@ -1,5 +1,7 @@
 using System;
+using FinanceiroCore.Comum;
 using FinanceiroCore.Comum.Interfaces;
+using FinanceiroCore.RecursosExternos.Interfaces;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
@@ -12,12 +14,13 @@ namespace Tests.Core
         [Fact]
         public void Utils_CalcularJurosComposto_Successful()
         {
-            var valorEsperado = 105.10m;
-            var calculadora = Substitute.For<ICalculadoraFinanceira>();
-            calculadora.CalcularJurosCompostoAsync(100m, 5).Returns(valorEsperado);
+            var bancoCentral = Substitute.For<ITaxaJuros>();
+            bancoCentral.GetTaxaJurosAsync().Returns(0.01m);
+
+            var calculadora = new Calculadora(bancoCentral);
 
             calculadora.CalcularJurosCompostoAsync(100m, 5).Result
-                .Should().Be(valorEsperado);
+                .Should().Be(105.10m);
         }
     }
 }

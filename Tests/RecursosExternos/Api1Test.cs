@@ -19,13 +19,16 @@ namespace Tests.RecursosExternos
         public void Api1_GetTaxaJuros_Successful()
         {
             //  testando isolado só para versionar já que estou com problemas para
-            //  rodar a aplicação no IIS Express
+            //  rodar a aplicação no IIS Express.
 
-            var bancoCentral = Substitute.For<ITaxaJuros>();
-            bancoCentral.GetTaxaJurosAsync().Returns(0.01m);
-
-            bancoCentral.GetTaxaJurosAsync().Result
-                .Should().Be(0.01m);
+            // var bancoCentral = Substitute.For<ITaxaJuros>();
+            // bancoCentral.GetTaxaJurosAsync().Returns(0.01m);
+            //
+            // bancoCentral.GetTaxaJurosAsync().Result
+            //     .Should().Be(0.01m);
+            
+            var juros = _fixture.BancoCentral.GetTaxaJurosAsync().Result;
+            juros.Should().Be(0.01m);
         }
     }
 }
