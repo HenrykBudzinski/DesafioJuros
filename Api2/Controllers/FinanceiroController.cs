@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FinanceiroCore.Comum.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Api2.Controllers
@@ -15,12 +17,17 @@ namespace Api2.Controllers
     public class FinanceiroController : ControllerBase
     {
         // private readonly ILogger _logger;
-        //
-        // public FinanceiroController(ILogger<FinanceiroController> logger)
-        // {
-        //     _logger = logger;
-        // }
+        private readonly IConfiguration _config;
+        private readonly ICalculadoraFinanceira _calc;
         
+
+        public FinanceiroController(IConfiguration config, ICalculadoraFinanceira calc)
+        {
+            // _logger = logger;
+            _config = config;
+            _calc = calc;
+        }
+
         [HttpGet]
         [Route("/calculaJuros")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -30,29 +37,25 @@ namespace Api2.Controllers
             [FromQuery]decimal valorinicial, 
             [FromQuery]int meses)
         {
-            if (valorinicial < 0)
+            try
             {
-                return BadRequest();
+                var valorTotal = await _calc.CalcularJurosCompostoAsync(valorinicial, meses);
+                return valorTotal;
             }
-            
-            using (var client = new HttpClient())
+            catch (ArgumentException argEx)
             {
-                var result = await client.GetAsync("http://localhost:8001/taxaJuros");
-                if (!result.IsSuccessStatusCode)
+                var result = new ObjectResult(new
                 {
-                    return StatusCode(StatusCodes.Status503ServiceUnavailable, "O serviço que define os juros está fora do ar");
-                }
-
-                double juros;
-                var resultContent = await result.Content.ReadAsStringAsync();
-                if (string.IsNullOrWhiteSpace(resultContent) || !double.TryParse(resultContent, out juros))
-                {
-                    return StatusCode(500);
-                }
-                
-                var jurosTotal = Math.Pow(1 + juros, meses);
-                var valorTotal = valorinicial * (decimal) jurosTotal;
-                return Math.Truncate(100m * valorTotal) / 100m;
+                    error = argEx.Message,
+                    param = argEx.ParamName,
+                    dateTime = DateTime.Now
+                });
+                result.StatusCode = StatusCodes.Status400BadRequest;
+                return result;
+            }
+            catch (HttpRequestException)
+            {
+                return StatusCode(StatusCodes.Status503ServiceUnavailable);
             }
         }
     }
