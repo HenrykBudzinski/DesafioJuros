@@ -9,6 +9,21 @@ docker build -t api1 .
 docker run -d -p 8001:80 --name henryk_Api1 api1  
 docker run -d -p 8002:80 --name henryk_Api2 api2  
 ```
+  
+> **OBS:** É preciso que os dois containers se comunique, caso contrário eles não vão se comunicar _\(Api2 consome a Api1\)_.
+  
+Para que os dois containers se comunique, é preciso descobrir seus IPs dentro da rede que eles estão conectados:
+``` powershell
+# lista todas as conexões criadas pelo Docker  
+docker network ls  
+# Verifique os IPs dos containers  
+docker network inspect [NETWORK ID]  
+```  
+  
+No projeto Api2 no arquivo `appsettings.json` no node "urls"."Api1", substitua o valor pelo endereço IP do container da Api1.  
+- **Exp.:** http://localhost:8001 -> http://172.17.0.2
+
+**Se já havia montado a imagem e o container da Api2. Delete o container e monte a imagem novamente.**
 
 # Seleção de pessoa Desenvolvedora .Net Core
 
