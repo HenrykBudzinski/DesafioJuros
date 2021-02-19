@@ -35,12 +35,12 @@ namespace Api2.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
         public async Task<ActionResult<decimal>> CalculaJuros(
-            [FromQuery]decimal valorinicial, 
+            [FromQuery]decimal valorInicial, 
             [FromQuery]int meses)
         {
             try
             {
-                var valorTotal = await _calc.CalcularJurosCompostoAsync(valorinicial, meses);
+                var valorTotal = await _calc.CalcularJurosCompostoAsync(valorInicial, meses);
                 return valorTotal;
             }
             catch (ArgumentException argEx)

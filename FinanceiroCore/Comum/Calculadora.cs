@@ -26,6 +26,11 @@ namespace FinanceiroCore.Comum
         /// <exception cref="System.Net.Http.HttpRequestException"></exception>
         public async Task<decimal> CalcularJurosCompostoAsync(decimal valorInicial, int meses)
         {
+            if (valorInicial == 0)
+            {
+                throw new ArgumentException("Informe um valor diferente de zero", "valorInicial");
+            }
+            
             if (meses < 0)
             {
                 throw new ArgumentException("Informe um valor maior ou igual a zero", "meses");

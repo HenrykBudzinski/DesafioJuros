@@ -44,5 +44,14 @@ namespace Tests.Integracao
             
             request.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
+        
+        [Fact]
+        public async void CalculaJuros_InformandoZeroNoParametroValorInicial_Successful()
+        {
+            using var request = await _fixture.TestClient.GetAsync(
+                ApiRoutes.Financeiro.Get.CalcularJuros + $"?valorinicial=0&meses=5");
+            
+            request.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
     }
 }
