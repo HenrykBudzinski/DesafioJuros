@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Api2.Routes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -16,7 +17,7 @@ namespace Api2.Controllers
         }
         
         [HttpGet]
-        [Route("/showmethecode")]
+        [Route(ApiRoutes.Github.Get.ShowTheCode)]
         public async Task<string> GetUrl()
         {
             return await Task.Run(() => _config.GetValue<string>("urls:github"));
