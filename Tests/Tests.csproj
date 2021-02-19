@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.0.0-alpha0002" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
         <PackageReference Include="NSubstitute" Version="4.2.2" />
         <PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.14" />
@@ -23,6 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Api1\Api1.csproj" />
+      <ProjectReference Include="..\Api2\Api2.csproj" />
       <ProjectReference Include="..\FinanceiroCore\FinanceiroCore.csproj" />
     </ItemGroup>
 
