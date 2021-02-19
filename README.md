@@ -1,6 +1,14 @@
 # DesafioJuros
 Desafio .Net Core
 
+## Docker
+``` powershell
+docker build -t api2 .  
+cd Api1  
+docker build -t api1 .  
+docker run -d -p 8001:80 --name henryk_Api1 api1  
+docker run -d -p 8002:80 --name henryk_Api2 api2  
+```
 
 # Seleção de pessoa Desenvolvedora .Net Core
 
