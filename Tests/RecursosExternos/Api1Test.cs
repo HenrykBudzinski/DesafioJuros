@@ -19,6 +19,8 @@ namespace Tests.RecursosExternos
         public void Api1_GetTaxaJuros_Successful()
         {
             var juros = _fixture.BancoCentral.GetTaxaJurosAsync().Result;
+            
+            //  Assert
             juros.Should().Be(0.01m);
         }
     }
