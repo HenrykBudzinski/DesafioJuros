@@ -71,8 +71,7 @@ Extras
 2.	Teste de integração da API em linguagem de sua preferência (Damos importância para pirâmide de testes)
 3.	Utilizar swagger
 
-> [!NOTE] 
-> **Prazo e retorno**  
+> **Prazo e retorno** :warning:  
 > Isso será combinado com quem você fez a entrevista. Você terá tempo para entender o cenário e nos retornar um prazo.  
 > Lembre-se: Prazo dado é prazo cumprido.  
 
