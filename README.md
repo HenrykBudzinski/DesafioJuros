@@ -61,7 +61,7 @@ Resultado final deve ser truncado (sem arredondamento) em duas casas decimais.
 
 Este responde pelo path relativo `/showmethecode`. Deverá retornar a url do repositório deste projeto (obrigatoriamente no github).
 
-Esperamos que a entrega tenha:
+## Resultado Esperado
 
 1.	Código fonte em [asp.net core][aspnetcore] no github (Mostrar conhecimento básico de git)
 2.	Teste unitários (Mostrar conhecimento de testes unitários, se possível TDD)
