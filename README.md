@@ -4,7 +4,7 @@ Desafio .Net Core
 ## Docker
 
 > Windows 10 pro  
-> [Docker 20.10.2](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (_Windows 10 Home?_ [_use this link_](https://docs.docker.com/docker-for-windows/install-windows-home/)).  
+> [Docker 20.10.2](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (_Windows 10 Home?_ [_use esse link_](https://docs.docker.com/docker-for-windows/install-windows-home/)).  
 > [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 - abra o console _(no exemplo uso powershell)_ e navega até a pasta onde o projeto foi clonado;
