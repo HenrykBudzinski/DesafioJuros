@@ -2,13 +2,16 @@
 Desafio .Net Core
 
 ## Docker
-``` powershell
-docker build -t api2 .  
-cd Api1  
-docker build -t api1 .  
-docker run -d -p 8001:80 --name henryk_Api1 api1  
-docker run -d -p 8002:80 --name henryk_Api2 api2  
-```
+- abra o console _(no exemplo uso powershell)_ e navega até a pasta onde o projeto foi clonado;
+- entre com os comandos abaixo:
+  ``` powershell
+  docker build -t api2 .  
+  # entre na pasta Api1
+  cd Api1 # o mesmo que "sl Api1"
+  docker build -t api1 .  
+  docker run -d -p 8001:80 --name henryk_Api1 api1  
+  docker run -d -p 8002:80 --name henryk_Api2 api2  
+  ```
   
 > **OBS:** É preciso que os dois containers se comunique  _\(Api2 consome a Api1\)_. Veja uma forma fazer isso logo abaixo.  
 > A outra opção é usando [user defined network](https://docs.docker.com/network/bridge/) _(Dependendo das permissões de sua conta e rede isso pode não funcionar_).
