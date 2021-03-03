@@ -10,7 +10,8 @@ docker run -d -p 8001:80 --name henryk_Api1 api1
 docker run -d -p 8002:80 --name henryk_Api2 api2  
 ```
   
-> **OBS:** É preciso que os dois containers se comunique  _\(Api2 consome a Api1\)_. Veja como fazer isso logo abaixo.
+> **OBS:** É preciso que os dois containers se comunique  _\(Api2 consome a Api1\)_. Veja uma forma fazer isso logo abaixo.  
+> A outra opção é usando [user defined network](https://docs.docker.com/network/bridge/) _(Dependendo das permissões de sua conta e rede isso pode não funcionar_).
   
 Para que os dois containers se comunique, uma das formas, é descobrir seus IPs dentro da rede que eles estão conectados:
 ``` powershell
