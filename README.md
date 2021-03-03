@@ -33,13 +33,13 @@ Você deverá criar duas API's uma com dois endpoints e outra com um endpoint:
 
 ## API 1
 
-### Retorna taxa de juros
+### :satellite: Retorna taxa de juros
 
 Responde pelo path relativo `/taxaJuros` Retorna o juros de 1% ou 0,01 (fixo no código) Exemplo: /taxaJuros Resultado esperado: 0,01  
 
 ## API 2
 
-### Calcula Juros
+### :satellite: Calcula Juros
 
 Responde pelo path relativo `/calculajuros`  
   
@@ -58,7 +58,7 @@ Resultado final deve ser truncado (sem arredondamento) em duas casas decimais.
 **Exemplo:** `/calculajuros?valorinicial=100&meses=5`  
 **Resultado esperado:** `105,10`
 
-### Show me the code
+### :satellite: Show me the code
 
 Este responde pelo path relativo `/showmethecode`. Deverá retornar a url do repositório deste projeto (obrigatoriamente no github).
 
