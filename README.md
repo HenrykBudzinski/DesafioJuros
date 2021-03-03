@@ -24,7 +24,7 @@ docker network inspect [NETWORK ID]
 No projeto Api2 no arquivo `appsettings.json` no node "urls"."Api1", substitua o valor pelo endereço IP do container da Api1.  
 - **Exp.:** http://localhost:8001 -> http://172.17.0.2
 
-**Se já havia montado a imagem e o container da Api2. Delete o container e monte a imagem novamente.**
+:warning: **Se já havia montado a imagem e o container da Api2. Delete o container e monte a imagem novamente.**
 
 # Seleção de pessoa Desenvolvedora .Net Core
 
