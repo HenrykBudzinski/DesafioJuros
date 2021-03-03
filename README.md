@@ -54,7 +54,7 @@ Ela faz um cálculo em memória, de juros compostos, conforme abaixo:
 - **Valor do Juros** deve ser consultado na **API 1**;
 - **Tempo** é um inteiro que representa os meses. Também recebido como parâmetro.   
   
-> `^` _representa a operação de potência._  
+> :information_source: `^` _representa a operação de potência._  
   
 Resultado final deve ser truncado (sem arredondamento) em duas casas decimais.  
   
